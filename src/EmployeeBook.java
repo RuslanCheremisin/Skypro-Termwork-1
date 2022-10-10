@@ -68,29 +68,7 @@ public class EmployeeBook {
             }
         }System.out.println("=========================================");
     }
-//    public Employee[] countDepartment(int departmentNo) {
-//        Employee[] tmp = new Employee[employees.length];
-//        for (int i = 0; i < tmp.length; i++) {
-//            if (employees[i].getDepartmentNo() == departmentNo) {
-//                tmp[i] = employees[i];
-//            }
-//        }
-//        int count = 0;
-//        for (int i = 0; i < employees.length; i++) {
-//            if (employees[i].getDepartmentNo() == departmentNo) {
-//                count++;
-//            }
-//        }
-//        Employee[] department = new Employee[count];
-//        Arrays.sort(tmp, Comparator.nullsLast(null));
-//        for (int i = 0; i<department.length;i++) {
-//            if (tmp[i]!=null) {
-//                department[i] = tmp[i];
-//            }
-//        }
-//
-//        return department;
-//    }
+
     public void printDepartmentList(int departmentNo) {
         Employee[] tmp = new Employee[employees.length];
         for (int i = 0; i < tmp.length; i++) {
