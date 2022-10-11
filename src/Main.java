@@ -21,11 +21,13 @@ public class Main {
         employeeBook.addEmployee("Stepan Stepanovich Pustoy", 2, 28000);
 
         employeeBook.printEmployeesList();
-        employeeBook.deleteEmployee("3");
+        employeeBook.deleteEmployeeById(3);
         employeeBook.printEmployeesList();
         employeeBook.addEmployee("Vernite pasport pojaluysta, ya ne hochu tut rabotat",1,34000);
         employeeBook.printEmployeesList();
-        employeeBook.editEmployeeRecord("3",5,-20000);
+        employeeBook.editEmployeeDepartmentNo("2",2);
+        employeeBook.editEmployeeSalary("Stepan Stepanovich Pustoy",28700);
+        employeeBook.editEmployeeDepartmentNoAndSalary("3",5,-20000);
         employeeBook.printEmployeesList();
         employeeBook.printEmployeesListByDepartments();
 

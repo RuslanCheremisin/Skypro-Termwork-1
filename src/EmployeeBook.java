@@ -3,11 +3,7 @@ import java.util.Comparator;
 
 public class EmployeeBook {
 
-    private Employee[] employees = new Employee[10];
-
-//    public void EmployeeBook(Employee[] employees) {
-//        this.employees = employees;
-//    }
+    private final Employee[] employees = new Employee[10];
 
     public void addEmployee(String fullName, int departmentNo, double salary){
         for (int i = 0; i < employees.length; i++) {
@@ -20,9 +16,9 @@ public class EmployeeBook {
             }
         }
     }
-    public void deleteEmployee(String fullNameOrId) {
+    public void deleteEmployeeByName(String fullName) {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i]!=null && (employees[i].getFullName().equals(fullNameOrId) || fullNameOrId.equals(Integer.toString(employees[i].getId())))) {
+            if (employees[i]!=null && (employees[i].getFullName().equals(fullName))) {
                 System.out.println(employees[i].getFullName()+" deleted from employee book");
                 System.out.println("=========================================");
                 employees[i] = null;
@@ -31,7 +27,18 @@ public class EmployeeBook {
         }
 
     }
-    public void editEmployeeRecord(String fullNameOrId,int departmentNo) {
+    public void deleteEmployeeById(int id) {
+        for (int i = 0; i < employees.length; i++) {
+            if (id ==(employees[i].getId())) {
+                System.out.println(employees[i].getFullName()+" deleted from employee book");
+                System.out.println("=========================================");
+                employees[i] = null;
+            }
+
+        }
+
+    }
+    public void editEmployeeDepartmentNo(String fullNameOrId,int departmentNo) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i]!=null && (employees[i].getFullName().equals(fullNameOrId) || fullNameOrId.equals(Integer.toString(employees[i].getId())))) {
                employees[i].setDepartmentNo(departmentNo);
@@ -40,7 +47,7 @@ public class EmployeeBook {
             }
         }
     }
-    public void editEmployeeRecord(String fullNameOrId,double salary) {
+    public void editEmployeeSalary(String fullNameOrId,double salary) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i]!=null && (employees[i].getFullName().equals(fullNameOrId) || fullNameOrId.equals(Integer.toString(employees[i].getId())))) {
                 employees[i].setSalary(salary);
@@ -49,7 +56,7 @@ public class EmployeeBook {
             }
         }
     }
-    public void editEmployeeRecord(String fullNameOrId,int departmentNo, double salary) {
+    public void editEmployeeDepartmentNoAndSalary(String fullNameOrId,int departmentNo, double salary) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i]!=null && (employees[i].getFullName().equals(fullNameOrId) || fullNameOrId.equals(Integer.toString(employees[i].getId())))) {
                 employees[i].setDepartmentNo(departmentNo);
@@ -130,7 +137,7 @@ public class EmployeeBook {
     }
 
     public void findMinSalaryEmpl() {
-        double minSalary = Integer.MAX_VALUE;
+        double minSalary = Double.MAX_VALUE;
         Employee employee = null;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -147,7 +154,7 @@ public class EmployeeBook {
 
     public void findMaxSalaryEmpl() {
         Employee employee = null;
-        double maxSalary = Integer.MIN_VALUE;
+        double maxSalary = Double.MIN_VALUE;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 if (employees[i].getSalary() > maxSalary && employees[i] != null) {
@@ -162,18 +169,14 @@ public class EmployeeBook {
 
     public void findAvrgSalary() {
         int sum = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                sum += employees[i].getSalary();
-            }
-        }
         double avrgSalary = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
+                sum += employees[i].getSalary();
                 avrgSalary = sum / (i + 1);
             }
-
         }
+
         System.out.println("Average salary: "+avrgSalary);
         System.out.println("=========================================");
     }
